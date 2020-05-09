@@ -17,8 +17,12 @@ public class Routes {
                 usuarioService.get(request, response), new JSONTransformer());
 
 
-
         post("/users", (request, response) -> usuarioService.add(request, response));
+
+
+        put("/users", (request, response) -> usuarioService.update(request, response));
+
+        delete("/users/:id", (request, response) -> usuarioService.delete(request, response));
 
 
         get("/products", "application/json", (request, response) ->
@@ -29,6 +33,11 @@ public class Routes {
 
 
         post("/products", (request, response) -> produtoService.add(request, response));
+
+        put("/products", (request, response) -> produtoService.update(request, response));
+
+        delete("/products/:id", (request, response) -> produtoService.delete(request, response));
+
 
     }
 }
