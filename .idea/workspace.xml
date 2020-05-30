@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b433998b-e9d5-42ce-b85a-ca1de895bbec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/produtos.bin" beforeDir="false" afterPath="$PROJECT_DIR$/produtos.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Aplicacao/Routes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Aplicacao/Routes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Aplicacao/Routes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Aplicacao/Routes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usuarios.bin" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios.bin" afterDir="false" />
-    </list>
+    <list default="true" id="b433998b-e9d5-42ce-b85a-ca1de895bbec" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
