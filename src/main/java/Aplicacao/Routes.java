@@ -4,11 +4,33 @@ import Service.ProdutoService;
 import Service.UsuarioService;
 
 import static spark.Spark.*;
+
 public class Routes {
     public static void main(String[] args) {
-        CorsFilter.apply();
+
         UsuarioService usuarioService = new UsuarioService();
         ProdutoService produtoService = new ProdutoService();
+        options("/*",
+                (request, response) -> {
+
+                    String accessControlRequestHeaders = request
+                            .headers("Access-Control-Request-Headers");
+                    if (accessControlRequestHeaders != null) {
+                        response.header("Access-Control-Allow-Headers",
+                                accessControlRequestHeaders);
+                    }
+
+                    String accessControlRequestMethod = request
+                            .headers("Access-Control-Request-Method");
+                    if (accessControlRequestMethod != null) {
+                        response.header("Access-Control-Allow-Methods",
+                                accessControlRequestMethod);
+                    }
+
+                    return "OK";
+                });
+
+        before((request, response) -> response.header("Access-Control-Allow-Origin", "*"));
 
         get("/users", "application/json", (request, response) ->
                 usuarioService.getAll(request, response), new JSONTransformer());
@@ -17,7 +39,9 @@ public class Routes {
                 usuarioService.get(request, response), new JSONTransformer());
 
 
-        post("/users", (request, response) -> usuarioService.add(request, response));
+        post("/users", (request, response) ->{
+            return usuarioService.add(request, response);
+        });
 
 
         put("/users", (request, response) -> usuarioService.update(request, response));
@@ -37,7 +61,6 @@ public class Routes {
         put("/products", (request, response) -> produtoService.update(request, response));
 
         delete("/products/:id", (request, response) -> produtoService.delete(request, response));
-
 
     }
 }
