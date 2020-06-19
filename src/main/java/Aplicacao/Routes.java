@@ -54,6 +54,8 @@ public class Routes {
 
         get("/files/:id", "application/json",( request, response) -> fileService.get(request, response), new JSONTransformer());
 
+        delete("/files/:id", "application/json",( request, response) -> fileService.destroy(request, response), new JSONTransformer());
+
         get("/products", "application/json", (request, response) ->
                 produtoService.getAll(request, response), new JSONTransformer());
 

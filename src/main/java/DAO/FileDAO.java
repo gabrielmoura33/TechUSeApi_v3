@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileDAO {
+public class FileDAO implements DAO<File, Integer> {
 
     private List<File> fileList;
     private java.io.File file;
@@ -20,10 +20,10 @@ public class FileDAO {
             readFromFile();
     }
 
-    public String get(Integer chave) {
+    public File get(Integer chave) {
         for (File f : fileList) {
             if (chave.intValue() == f.getId()) {
-                return f.getBase64();
+                return f;
             }
         }
         return null;
@@ -32,6 +32,26 @@ public class FileDAO {
     public void add(File p) {
         fileList.add(p);
         saveToFile();
+    }
+
+    @Override
+    public void update(File p) {
+
+    }
+
+    public void remove(File file) {
+        int index = fileList.indexOf(file);
+
+        if (index != -1) {
+            fileList.set(index, file);
+            saveToFile();
+        }
+        saveToFile();
+    }
+
+    @Override
+    public List<File> getAll() {
+        return null;
     }
 
     private void readFromFile() {

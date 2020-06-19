@@ -30,6 +30,14 @@ public class FileService {
     public Object get(Request request, Response response) {
         response.header("Content-Type", "application/json");
         int id = Integer.parseInt(request.params(":id"));
-        return fileDAO.get(id);
+        return fileDAO.get(id).getBase64();
+    }
+    public Object destroy(Request request, Response response) {
+        response.type("application/json");
+        File fileAux = fileDAO.get(Integer.parseInt(request.params(":id")));
+
+        fileDAO.remove(fileAux);
+        response.header("Content-Type", "application/json");
+        return true;
     }
 }
