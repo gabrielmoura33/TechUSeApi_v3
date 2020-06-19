@@ -1,5 +1,6 @@
 package Aplicacao;
 
+import Service.FileService;
 import Service.ProdutoService;
 import Service.UsuarioService;
 
@@ -10,6 +11,7 @@ public class Routes {
 
         UsuarioService usuarioService = new UsuarioService();
         ProdutoService produtoService = new ProdutoService();
+        FileService fileService  = new FileService();
         options("/*",
                 (request, response) -> {
 
@@ -48,6 +50,9 @@ public class Routes {
 
         delete("/users/:id", (request, response) -> usuarioService.delete(request, response));
 
+        post("/files", ( request, response) -> fileService.add(request, response));
+
+        get("/files/:id", "application/json",( request, response) -> fileService.get(request, response), new JSONTransformer());
 
         get("/products", "application/json", (request, response) ->
                 produtoService.getAll(request, response), new JSONTransformer());

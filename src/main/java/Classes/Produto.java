@@ -14,8 +14,9 @@ public class Produto implements Serializable {
     private String cidadeProduto;
     private String telefoneContato;
     private double precoProduto;
+    private int file_id;
 
-    public Produto(int id, String nomeProduto, String dataCadastro, String descricaoProduto, String categoriaProduto, String estadoProduto, String cidadeProduto, String telefoneContato, double precoProduto) {
+    public Produto(int id, String nomeProduto, String dataCadastro, String descricaoProduto, String categoriaProduto, String estadoProduto, String cidadeProduto, String telefoneContato, double precoProduto, int file_id) {
         this.id = id;
         this.nomeProduto = nomeProduto;
         this.dataCadastro = dataCadastro;
@@ -25,6 +26,7 @@ public class Produto implements Serializable {
         this.cidadeProduto = cidadeProduto;
         this.telefoneContato = telefoneContato;
         this.precoProduto = precoProduto;
+        this.file_id = file_id;
     }
 
     public Produto() {
@@ -101,6 +103,14 @@ public class Produto implements Serializable {
 
     public void setPrecoProduto(double precoProduto) {
         this.precoProduto = precoProduto;
+    }
+
+    public int getFile_id() {
+        return file_id;
+    }
+
+    public void setFile_id(int file_id) {
+        this.file_id = file_id;
     }
 
     public boolean equals(Object obj) {
